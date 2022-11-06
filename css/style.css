@@ -154,6 +154,27 @@ body._lock {
   left: 0;
 }
 
+.a {
+  display: none;
+  z-index: 10;
+  position: fixed;
+  width: 600px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.a._active {
+  display: block;
+}
+
+.for-vid2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgb(223, 223, 223);
+}
+
 .btn {
   display: inline-block;
 }
@@ -207,7 +228,7 @@ body._lock {
   width: 12px;
   height: 20px;
   transform: translate(0, -50%);
-  background: url(/images/arrow-btn.svg);
+  background: url(../images/arrow-btn.svg);
 }
 
 .section {
@@ -272,24 +293,39 @@ body._lock {
 
 .spoiler__item {
   text-align: left;
+}
+
+.spoiler__title {
   position: relative;
   cursor: pointer;
 }
-.spoiler__item:last-child {
-  margin: 0;
-}
-.spoiler__item::after {
+.spoiler__title::after, .spoiler__title::before {
   content: "";
   position: absolute;
   top: 50%;
   right: 24px;
-  width: 16px;
-  height: 10px;
-  background: url(/images/arrow-spoiler.svg);
+  width: 10px;
+  height: 1px;
+  background: #000;
   transition: all 0.3s ease;
 }
-.spoiler__item._active::after {
-  transform: rotate(-180deg);
+.spoiler__title::after {
+  transform: rotate(40deg) translate(0, -50%);
+  right: 27px;
+}
+.spoiler__title::before {
+  transform: rotate(-40deg) translate(0, -50%);
+  right: 20px;
+}
+.spoiler__title._active::after {
+  transform: rotate(-40deg) translate(0, -50%);
+}
+.spoiler__title._active::before {
+  transform: rotate(40deg) translate(0, -50%);
+}
+
+.spoiler__text {
+  display: none;
 }
 
 .header {
@@ -452,7 +488,6 @@ body._lock {
   position: relative;
   width: 100%;
   padding: 0 0 50% 0;
-  margin: 0 -15px 0 0;
 }
 .intro__image img {
   position: absolute;
@@ -642,6 +677,7 @@ body._lock {
   line-height: 46px;
   color: #0F0F0F;
   margin: 0 0 6.5rem 0;
+  text-align: center;
 }
 
 .course__spoiler {
@@ -649,27 +685,19 @@ body._lock {
   background: #EDEDED;
   margin: 0 0 1.2rem 0;
   text-align: left;
-  position: relative;
-  cursor: pointer;
-  font-size: 1.9rem;
-  line-height: 30px;
-  color: #464646;
 }
 .course__spoiler:last-child {
   margin: 0;
 }
-.course__spoiler::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 24px;
-  width: 16px;
-  height: 10px;
-  background: url(/images/arrow-spoiler.svg);
-  transition: all 0.3s ease;
+
+.course-spoiler__title {
+  font-size: 1.9rem;
+  line-height: 30px;
+  color: #464646;
 }
-.course__spoiler._active::after {
-  transform: rotate(-180deg);
+
+.course-spoiler__text {
+  margin: 2rem 0 0 0;
 }
 
 .end {
@@ -802,13 +830,21 @@ body._lock {
   font-size: 3.8rem;
   line-height: 46px;
   margin: 0 0 4rem 0;
+  text-align: center;
 }
 
 .questions__spoiler {
-  font-size: 22px;
-  line-height: 31px;
   padding: 2rem 0;
   border-bottom: 1px solid #DBDBDB;
+}
+
+.questions-spoiler__title {
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.questions-spoiler__text {
+  margin: 2rem 0 0 0;
 }
 
 .start {
@@ -929,7 +965,7 @@ body._lock {
   transform: translate(0, -50%);
   width: 22px;
   height: 23px;
-  background: url(/images/chek.svg);
+  background: url(../images/chek.svg);
 }
 
 .coments__container {
@@ -1055,6 +1091,7 @@ body._lock {
 
 .footer__content {
   max-width: 36rem;
+  position: relative;
 }
 @media (max-width: 767px) {
   .footer__content {

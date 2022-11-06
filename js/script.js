@@ -4,6 +4,9 @@ const gotoLinks = document.querySelectorAll('.nav__link[data-goto]');
 const headerBlock = document.querySelector('header');
 const headerBefore = getComputedStyle(headerBlock, '::before');
 const html = document.body;
+const vidos = document.querySelector('.a');
+const btnForVid = document.querySelector('#for-vid1');
+const linkForVid = document.querySelector('#for-vid2');
 
 
 if (gotoLinks.length > 0) {
@@ -50,3 +53,30 @@ if (burgerBtn) {
 		document.body.classList.toggle('_lock');
 	});
 }
+
+$(document).ready(function () {
+	$('.spoiler__title').click(function (e) {
+		if ($('.spoiler').hasClass('one')) {
+			$('.spoiler__title').not($(this)).removeClass('active');
+			$('.spoiler__text').not($(this).next()).slideUp(300);
+		}
+		$(this).toggleClass('_active').next().slideToggle(300);
+	})
+});
+
+if(btnForVid) {
+	btnForVid.addEventListener('click', function(e) {
+		vidos.classList.toggle('_active');
+		vidos.play();
+		e.preventDefault();
+	})
+}
+if(linkForVid) {
+	linkForVid.addEventListener('click', function(e) {
+		vidos.classList.toggle('_active');
+		vidos.play();
+		e.preventDefault();
+	})
+}
+
+
