@@ -63,7 +63,7 @@ $(document).ready(function () {
 		$(this).toggleClass('_active').next().slideToggle(300);
 	})
 });
-
+/*()
 if(btnForVid) {
 	btnForVid.addEventListener('click', function(e) {
 		vidos.classList.toggle('_active');
@@ -71,9 +71,10 @@ if(btnForVid) {
 		e.preventDefault();
 	})
 }
+*/
 if(linkForVid) {
 	linkForVid.addEventListener('click', function(e) {
-		vidos.classList.toggle('_active');
+		vidos.classList.add('_active');
 		vidos.play();
 		e.preventDefault();
 	})
